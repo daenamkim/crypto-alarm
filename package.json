@@ -1,0 +1,22 @@
+{
+  "name": "crypto-alarm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate": "knex migrate:latest --knexfile services/db/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile services/db/knexfile.js "
+  },
+  "repository": "git@github.com:daenamkim/crypto-alarm.git",
+  "author": "Daenam Kim <daenam.kim@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.0"
+  }
+}
