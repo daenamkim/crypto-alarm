@@ -1,3 +1,3 @@
-module.exports = (knex, AlarmIntegration) => {
+module.exports = (knex, CryptoHistory) => {
 
 };
