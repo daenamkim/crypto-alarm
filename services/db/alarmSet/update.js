@@ -7,6 +7,8 @@ module.exports = (knex, AlarmSet) => {
         title: params.title,
         fsym: params.fsym.toUpperCase(),
         tsym: params.tsym.toUpperCase(),
+        price: params.price,
+        option: params.option,
         enable: params.enable,
         updated_at: new Date()
       })

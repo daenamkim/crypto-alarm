@@ -35,6 +35,8 @@ body
   "title": "BTC to USD monitor",
   "fsym": "BTC",
   "tsym": "USD",
+  "price": 6534.1,
+  "option": "less",
   "enable": true
 }
 return
@@ -47,6 +49,8 @@ body
   "title": "BTC to USD monitor",
   "fsym": "BTC",
   "tsym": "USD",
+  "price": 6534.1,
+  "option": "less",
   "enable": true
 }
 return
@@ -57,3 +61,8 @@ param
 return
 
 no historical data for target of crypto currency.
+
+
+# Future
+
+batch to update all daily crypto prices

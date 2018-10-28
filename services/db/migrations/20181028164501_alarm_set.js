@@ -12,6 +12,14 @@ exports.up = function(knex, Promise) {
     table.string('tsym')
       .notNullable();
 
+    table.decimal('price', null, null)
+      .notNullable();
+
+    table.string('option')
+      .notNullable()
+      .defaultTo('less');
+      // option: [less, greater]
+
     table.boolean('enable')
       .notNullable()
       .defaultTo(true);

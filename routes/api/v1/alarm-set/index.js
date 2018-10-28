@@ -30,6 +30,8 @@ module.exports = services => {
         title: req.body.title,
         fsym: req.body.fsym,
         tsym: req.body.tsym,
+        price: req.body.price,
+        option: req.body.option,
         enable: req.body.enable
       })
       .then(alarmSet => {

@@ -5,6 +5,8 @@ module.exports = (knex, AlarmSet) => {
         title: params.title,
         fsym: params.fsym.toUpperCase(),
         tsym: params.tsym.toUpperCase(),
+        price: params.price, // TODO: casting?
+        option: params.option,
         enable: params.enable
       })
       .then(() => {
