@@ -34,10 +34,6 @@ class CryptoHistory {
 
 module.exports = knex => {
   return {
-    // create: require('./create')(knex, CryptoHistory),
-    // update: require('./update')(knex, CryptoHistory),
-    // get: require('./get')(knex, CryptoHistory),
-    list: require('./list')(knex, CryptoHistory),
-    // delete: require('./delete')(knex, CryptoHistory)
+    list: require('./list')(knex, CryptoHistory)
   };
 };

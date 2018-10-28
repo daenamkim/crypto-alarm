@@ -1,24 +1,24 @@
 module.exports = (knex, CryptoHistory) => {
   return params => {
-    const list = knex('crypto_history');
+    const querySet = knex('crypto_history');
 
     if (params.between) {
-      list.whereBetween('time', params.between);
+      querySet.whereBetween('time', params.between);
     }
 
     if (params.fsyms) {
-      list.whereIn('fsym', params.fsyms);
+      querySet.whereIn('fsym', params.fsyms);
     }
 
     if (params.tsyms) {
-      list.whereIn('tsym', params.tsyms);
+      querySet.whereIn('tsym', params.tsyms);
     }
 
-    list.select();
-    list.then(histories => {
+    querySet.select();
+    querySet.then(histories => {
       return histories.map(history => new CryptoHistory(history));
     });
 
-    return list;
+    return querySet;
   };
 };
