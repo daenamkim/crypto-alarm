@@ -9,6 +9,7 @@ Set the alarm to be notified according to setting and also it can provide filter
 
 ### Crypto History
 
+GET
 http://localhost:3000/api/v1/crypto-history
 http://localhost:3000/api/v1/crypto-history?between=YYYY-MM-DD,YYYY-MM-DD
 i.e. http://localhost:3000/api/v1/crypto-history?between=2018-10-20,2018-10-28
@@ -19,3 +20,20 @@ i.e. http://localhost:3000/api/v1/crypto-history?between=2018-10-20,2018-10-28&f
 http://localhost:3000/api/v1/crypto-history?between=YYYY-MM-DD,YYYY-MM-DD&fsyms=btc,eth&tsyms=usd,jpy
 i.e. http://localhost:3000/api/v1/crypto-history?between=2018-10-20,2018-10-28&fsyms=btc,eth&tsyms=usd,jpy
 
+
+GET
+http://localhost:3000/api/v1/alarm-set
+http://localhost:3000/api/v1/alarm-set/id
+
+POST
+http://localhost:3000/api/v1/alarm-set
+body
+
+PATCH
+http://localhost:3000/api/v1/alarm-set/id
+body
+
+DELETE
+http://localhost:3000/api/v1/alarm-set/id
+
+no historical data for target of crypto currency.
