@@ -3,35 +3,46 @@ const router = express.Router();
 
 module.exports = services => {
   router.get('/:id', (req, res) => {
-    // TODO: params
     services.db.alarmSet
-      .get();
-    res.status(200).send('get with id');
+      .get({id: req.params.id})
+      .then(alarmSet => res.status(200).json(alarmSet))
+      .catch(err => res.status(400).send(err.message));
   });
 
   router.get('', (req, res) => {
-    // if there is no alarm id
     services.db.alarmSet
-      .list();
-    res.status(200).send('get list');
+      .list()
+      .then(alarmSets => res.status(200).json(alarmSets))
+      .catch(err => res.status(400).send(err.message));;
   });
 
   router.post('', (req, res) => {
     services.db.alarmSet
-      .create();
-    res.status(200).send('post');
+      .create(req.body)
+      .then(alarmSet => res.status(201).json(alarmSet))
+      .catch(err => res.status(400).send(err.message));;
   });
 
   router.patch('/:id', (req, res) => {
     services.db.alarmSet
-      .update();
-      res.status(200).send('patch with id');
+      .update({
+        id: req.params.id,
+        title: req.body.title,
+        fsym: req.body.fsym,
+        tsym: req.body.tsym,
+        enable: req.body.enable
+      })
+      .then(alarmSet => {
+        res.status(200).json(alarmSet);
+      })
+      .catch(err => res.status(400).send(err.message));;
   });
 
   router.delete('/:id', (req, res) => {
     services.db.alarmSet
-      .delete();
-    res.status(200).send('delete with id');
+      .delete({id: req.params.id})
+      .then(() => res.status(200).end())
+      .catch(err => res.status(400).send(err.message));;
   });
 
   return router;

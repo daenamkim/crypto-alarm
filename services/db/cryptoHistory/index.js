@@ -5,14 +5,14 @@ class CryptoHistory {
     this.id = record.id;
     this.fsym = record.fsym;
     this.tsym = record.tsym;
-    this.time = new Date(record.time);
+    this.time = record.time;
     this.open = record.open;
     this.high = record.high;
     this.low = record.low;
     this.close = record.close;
     this.volumeFrom = record.volume_from;
     this.volumeTo = record.volume_to;
-    this.createdAt = new Date(record.created_at);
+    this.createdAt = record.created_at;
   }
 
   serialize() {
@@ -27,7 +27,7 @@ class CryptoHistory {
       close: this.close,
       volumeFrom: this.volumeFrom,
       volumeTo: this.volumeTo,
-      createdAt: moment(this.time).format()
+      createdAt: moment(this.createdAt).format()
     };
   }
 }
