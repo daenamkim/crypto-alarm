@@ -3,14 +3,132 @@
 <head>
   <meta charset="utf-8">
   <title>Crypto Alarm</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./js/bundle.js"></script>
 </head>
 <body>
-  asdfsdaf
+  <div id="header">
+    <div class="container">
+      <p class="title">Crypto Alarm</p>
+    </div>
+  </div>
+  <div id="contents">
+    <div class="container">
+      <div class="api__try">
+        <div>
+          <p class="api__title">Crypto History (daily)</p>
+          <ul>
+            <li>
+              <p>GET /api/v1/crypto-history{?between=FROM,TO&fsym=BTC&tsym=USD}</p>
+              <div>
+                <input id="api__uri-history-get" class="api__uri" value="/api/v1/crypto-history?between=2018-10-20,2018-10-28&fsym=BTC&tsym=USD">
+              </div>
+              <div>
+                <button id="api__button-history-get">Try</button>
+              </div>
+              <div>
+                <textarea id="api__result-history-get" class="api__result"></textarea>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="api__title">Crypto Alarm Set (minute)</p>
+          <ul>
+            <li>
+              <p>GET /api/v1/alarm-set</p>
+              <div>
+                <input id="api__uri-alarm-get" class="api__uri" value="/api/v1/alarm-set">
+              </div>
+              <div>
+                <button id="api__button-alarm-get">Try</button>
+              </div>
+              <div>
+                <textarea id="api__result-alarm-get" class="api__result"></textarea>
+              </div>
+            </li>
+            <li>
+              <p>GET /api/v1/alarm-set/{id}</p>
+              <div>
+                <input id="api__uri-alarm-get-one" class="api__uri" value="/api/v1/alarm-set/ID">
+              </div>
+              <div>
+                <button id="api__button-alarm-get-one">Try</button>
+              </div>
+              <div>
+                <textarea id="api__result-alarm-get-one" class="api__result"></textarea>
+              </div>
+            </li>
+            <li>
+              <p>POST /api/v1/alarm-set</p>
+              <div>
+                <input id="api__uri-alarm-post" class="api__uri" value="/api/v1/alarm-set">
+              </div>
+              <div>
+                <textarea id="api__body-alarm-post" class="api__body">
+                  {
+                    "title": "BTC to USD monitor",
+                    "fsym": "BTC",
+                    "tsym": "USD",
+                    "price": 6534.1,
+                    "option": "less",
+                    "enable": true
+                  }
+                </textarea>
+              </div>
+              <div>
+                <button id="api__button-alarm-post">Try</button>
+              </div>
+              <div>
+                <textarea id="api__result-alarm-post" class="api__result"></textarea>
+              </div>
+            </li>
+            <li>
+              <p>PATCH /api/v1/alarm-set/{id}</p>
+              <div>
+                <input id="api__uri-alarm-patch" class="api__uri" value="/api/v1/alarm-set/ID">
+              </div>
+              <div>
+                <textarea  id="api__body-alarm-patch" class="api__body">
+                  {
+                    "title": "BTC to USD monitor",
+                    "fsym": "BTC",
+                    "tsym": "USD",
+                    "price": 6534.1,
+                    "option": "less",
+                    "enable": true
+                  }
+                </textarea>
+              </div>
+              <div>
+                <button id="api__button-alarm-patch">Try</button>
+              </div>
+              <div>
+                <textarea id="api__result-alarm-patch" class="api__result"></textarea>
+              </div>
+            </li>
+            <li>
+              <p>DELETE /api/v1/alarm-set/{id}</p>
+              <div>
+                <input id="api__uri-alarm-delete" class="api__uri" value="/api/v1/alarm-set/ID">
+              </div>
+              <div>
+                <button id="api__button-alarm-delete">Try</button>
+              </div>
+              <div>
+                <textarea id="api__result-alarm-delete" class="api__result"></textarea>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="container">
+      <p class="footer__text">Daenam Kim @ Code Chrysalis CC6 2018</p>
+    </div>
+  </div>
 </body>
 </html>
